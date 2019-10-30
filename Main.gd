@@ -44,7 +44,8 @@ func _on_UI_start_game():
 
 
 func _on_Player_hit():
-	$UI/ScoreLabel.text = " "
+	$UI/ScoreLabel.text = "Your final score is " + score
+	score = 0
 	$ScoreTimer.stop()
 	$MeteorTimer.stop()
 	$UI.game_over()
