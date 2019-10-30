@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://assets/Player.png" type="Texture" id=2]
+[ext_resource path="res://assets/Meteor.png" type="Texture" id=3]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 0, -64, 50, 53, -50, 53 )
+
+[sub_resource type="ParticlesMaterial" id=2]
+flag_disable_z = true
+gravity = Vector3( 0, 98, 0 )
+angular_velocity = 0.376471
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+
+[node name="Player" type="Area2D"]
+position = Vector2( 490.29, 260.691 )
+scale = Vector2( 0.3, 0.3 )
+script = ExtResource( 1 )
+speed = 200
+
+[node name="Sprite" type="Sprite" parent="."]
+rotation = 1.5708
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.527039, 1.05408 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( -71.6782, 1.16406 )
+rotation = 1.5708
+scale = Vector2( 0.1, 0.1 )
+amount = 3
+lifetime = 5.0
+speed_scale = 3.5
+explosiveness = 0.06
+process_material = SubResource( 2 )
+texture = ExtResource( 3 )
+[connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]
