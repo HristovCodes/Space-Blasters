@@ -24,7 +24,6 @@ func _ready():
 	velocity = Vector2(speed, 0).rotated(rotation)
 
 func _physics_process(delta):
-	#position += velocity * delta
 	linear_velocity = velocity
 
 func _on_Visibility_screen_exited():

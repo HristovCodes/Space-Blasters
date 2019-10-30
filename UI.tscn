@@ -41,6 +41,19 @@ Space Blasters!"
 align = 1
 valign = 1
 
+[node name="HighScore" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -345.0
+margin_top = -295.53
+margin_right = 345.0
+margin_bottom = -39.5296
+custom_fonts/font = SubResource( 2 )
+align = 1
+valign = 1
+
 [node name="Start" type="Button" parent="."]
 margin_left = 56.8656
 margin_top = 255.533
