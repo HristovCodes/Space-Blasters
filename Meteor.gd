@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+export (PackedScene) var Coin
+
 export var speed = 400
 var velocity = Vector2()
 var health = 1
