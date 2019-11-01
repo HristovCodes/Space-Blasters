@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://UI.gd" type="Script" id=1]
 [ext_resource path="res://Montserrat-Bold.ttf" type="DynamicFontData" id=2]
@@ -13,6 +13,13 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 42
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 42
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 2 )
 
 [node name="UI" type="CanvasLayer"]
@@ -94,6 +101,27 @@ margin_right = 170.5
 margin_bottom = 35.0
 custom_fonts/font = SubResource( 3 )
 text = "PLAY AGAIN"
+
+[node name="BackToMenu" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -170.5
+margin_top = 67.2432
+margin_right = 170.5
+margin_bottom = 137.243
+custom_fonts/font = SubResource( 5 )
+text = "MAIN MENU"
+
+[node name="Bullets" type="Label" parent="."]
+margin_right = 326.0
+margin_bottom = 114.0
+custom_fonts/font = SubResource( 4 )
+text = "You can pew pew 5 more times!"
+align = 1
+valign = 1
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]
 [connection signal="pressed" from="PlayAgain" to="." method="_on_PlayAgain_pressed"]
+[connection signal="pressed" from="BackToMenu" to="." method="_on_BackToMenu_pressed"]

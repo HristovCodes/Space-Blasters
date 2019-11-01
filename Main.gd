@@ -17,6 +17,7 @@ func _process(delta):
 		$TimeToStart.text = "1"
 
 func _on_StartTimer_timeout():
+	$UI/Bullets.show()
 	$UI/ScoreLabel.show()
 	$MeteorTimer.start()
 	$ScoreTimer.start()
@@ -40,10 +41,8 @@ func _on_ScoreTimer_timeout():
 	score += 1
 	$UI.update_score(score)
 
-
 func _on_UI_start_game():
 	$StartTimer.start()
-
 
 func _on_Player_hit():
 	if score > highscore:
@@ -54,3 +53,11 @@ func _on_Player_hit():
 	$UI.game_over()
 	score = 0
 	meteor_count = 0
+
+
+#SFX
+func play_shoot():
+	$Shoot.play()
+
+func play_explosion():
+	$Explosion.play()
