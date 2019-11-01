@@ -1,18 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Meteor.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Montserrat-Bold.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://UI.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/Music.wav" type="AudioStream" id=6]
-[ext_resource path="res://assets/background.png" type="Texture" id=7]
-[ext_resource path="res://assets/Shoot.wav" type="AudioStream" id=8]
-[ext_resource path="res://assets/Explosion.wav" type="AudioStream" id=9]
-
-[sub_resource type="DynamicFont" id=1]
-size = 25
-font_data = ExtResource( 3 )
+[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/Music.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/background.png" type="Texture" id=6]
+[ext_resource path="res://assets/Shoot.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/Explosion.wav" type="AudioStream" id=8]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
@@ -27,36 +22,29 @@ wait_time = 3.0
 
 [node name="ScoreTimer" type="Timer" parent="."]
 
-[node name="TimeToStart" type="Label" parent="."]
-margin_left = 338.88
-margin_top = 181.311
-margin_right = 672.88
-margin_bottom = 340.311
-custom_fonts/font = SubResource( 1 )
-align = 1
-valign = 1
-
-[node name="Player" parent="." instance=ExtResource( 4 )]
+[node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 531.301, 228.314 )
 
-[node name="UI" parent="." instance=ExtResource( 5 )]
+[node name="UI" parent="." instance=ExtResource( 4 )]
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
+stream = ExtResource( 5 )
 autoplay = true
+bus = "Music"
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 520.927, 267.924 )
-scale = Vector2( 0.647791, 0.647791 )
+scale = Vector2( 1.82697, 1.82697 )
 z_index = -1
-texture = ExtResource( 7 )
+texture = ExtResource( 6 )
 
 [node name="Shoot" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
-volume_db = -5.049
+stream = ExtResource( 7 )
+bus = "SoundFX"
 
 [node name="Explosion" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
+stream = ExtResource( 8 )
+bus = "SoundFX"
 [connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
 [connection signal="timeout" from="MeteorTimer" to="." method="_on_MeteorTimer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]

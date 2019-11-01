@@ -10,18 +10,18 @@ func _ready():
 
 func _process(delta):
 	if $StartTimer.time_left > 2:
-		$TimeToStart.text = "3"
+		$UI/TimeToStart.text = "3"
 	elif $StartTimer.time_left > 1:
-		$TimeToStart.text = "2"
+		$UI/TimeToStart.text = "2"
 	elif $StartTimer.time_left > 0:
-		$TimeToStart.text = "1"
+		$UI/TimeToStart.text = "1"
 
 func _on_StartTimer_timeout():
 	$UI/Bullets.show()
 	$UI/ScoreLabel.show()
 	$MeteorTimer.start()
 	$ScoreTimer.start()
-	$TimeToStart.text = " "
+	$UI/TimeToStart.text = " "
 	$Player.start()
 
 

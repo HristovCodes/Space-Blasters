@@ -8,6 +8,12 @@ func _ready():
 	$HighScore.hide()
 	$Bullets.hide()
 	$BackToMenu.hide()
+	$BackToMenu2.hide()
+	$"Music Label".hide()
+	$"Music Volume".hide()
+	$"SoundFX Label".hide()
+	$"SoundFX Volume".hide()
+	$CreditsInfo.hide()
 
 func update_score(score):
 	$ScoreLabel.text = str(score)
@@ -53,3 +59,45 @@ func _on_BackToMenu_pressed():
 	$Quit.show()
 	$WelcomeLabel.show()
 	$Start.show()
+
+func _on_Options_pressed():
+	$Credits.hide()
+	$Options.hide()
+	$Quit.hide()
+	$Start.hide()
+	$BackToMenu2.show()
+	$"Music Label".show()
+	$"Music Volume".show()
+	$"SoundFX Label".show()
+	$"SoundFX Volume".show()
+
+func _on_SoundFX_Volume_value_changed(value):
+	AudioServer.set_bus_volume_db(2, value - 60)
+
+func _on_Music_Volume_value_changed(value):
+	AudioServer.set_bus_volume_db(1, value - 60)
+
+func _on_BackToMenu2_pressed():
+	$BackToMenu2.hide()
+	$HighScore.hide()
+	$PlayAgain.hide()
+	$"Music Label".hide()
+	$"Music Volume".hide()
+	$"SoundFX Label".hide()
+	$"SoundFX Volume".hide()
+	$CreditsInfo.hide()
+	$Credits.show()
+	$Options.show()
+	$Quit.show()
+	$WelcomeLabel.show()
+	$Start.show()
+
+
+func _on_Credits_pressed():
+	$Credits.hide()
+	$Options.hide()
+	$Quit.hide()
+	$WelcomeLabel.hide()
+	$Start.hide()
+	$CreditsInfo.show()
+	$BackToMenu2.show()

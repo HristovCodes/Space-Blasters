@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://UI.gd" type="Script" id=1]
 [ext_resource path="res://Montserrat-Bold.ttf" type="DynamicFontData" id=2]
@@ -15,11 +15,23 @@ font_data = ExtResource( 2 )
 size = 42
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 size = 42
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 42
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 32
 font_data = ExtResource( 2 )
 
 [node name="UI" type="CanvasLayer"]
@@ -111,17 +123,119 @@ margin_left = -170.5
 margin_top = 67.2432
 margin_right = 170.5
 margin_bottom = 137.243
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 text = "MAIN MENU"
 
 [node name="Bullets" type="Label" parent="."]
 margin_right = 326.0
 margin_bottom = 114.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "You can pew pew 5 more times!"
 align = 1
 valign = 1
+
+[node name="Music Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -130.5
+margin_top = -71.0185
+margin_right = 130.5
+margin_bottom = -40.0185
+rect_pivot_offset = Vector2( 74.6303, 43.2527 )
+custom_fonts/font = SubResource( 6 )
+text = "Adjust game's music"
+
+[node name="Music Volume" type="HSlider" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -135.0
+margin_top = -22.8506
+margin_right = 135.0
+margin_bottom = 19.1494
+rect_pivot_offset = Vector2( 80, 11 )
+max_value = 60.0
+value = 60.0
+
+[node name="SoundFX Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -153.5
+margin_top = 32.616
+margin_right = 153.5
+margin_bottom = 63.616
+rect_pivot_offset = Vector2( 74.6303, 43.2527 )
+custom_fonts/font = SubResource( 6 )
+text = "Adjust game's soundfx's"
+
+[node name="SoundFX Volume" type="HSlider" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -135.0
+margin_top = 69.6802
+margin_right = 135.0
+margin_bottom = 111.68
+rect_pivot_offset = Vector2( 80, 11 )
+max_value = 60.0
+value = 60.0
+
+[node name="BackToMenu2" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -194.0
+margin_top = -95.9087
+margin_right = 194.0
+margin_bottom = -25.9087
+custom_fonts/font = SubResource( 4 )
+text = "BACK TO MENU"
+
+[node name="CreditsInfo" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -347.5
+margin_top = -288.564
+margin_right = 347.5
+margin_bottom = 203.436
+custom_fonts/font = SubResource( 7 )
+text = "Game made by Ivailo Hristov
+Coded in just 3 days!
+
+
+Art: Ivailo Hristov
+Music: Ivailo Hristov
+Sound Effects: Ivailo Hristov
+Code: Ivailo Hristov
+Special thanks to: Ivailo Hristov"
+align = 1
+valign = 1
+
+[node name="TimeToStart" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 8 )
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_Credits_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]
 [connection signal="pressed" from="PlayAgain" to="." method="_on_PlayAgain_pressed"]
 [connection signal="pressed" from="BackToMenu" to="." method="_on_BackToMenu_pressed"]
+[connection signal="value_changed" from="Music Volume" to="." method="_on_Music_Volume_value_changed"]
+[connection signal="value_changed" from="SoundFX Volume" to="." method="_on_SoundFX_Volume_value_changed"]
+[connection signal="pressed" from="BackToMenu2" to="." method="_on_BackToMenu2_pressed"]
